@@ -2,5 +2,5 @@
 
 - Nguyễn Hữu Sơn - sonnhfit@gmail.com 
 - Nguyễn Nhật Nam - nhatnamnguyen.gtvthcm@gmail.com
-- H
+- Hoàng Đình Hùng - h1oangdinhhung59@gmail.com
 
