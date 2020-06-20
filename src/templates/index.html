@@ -1,0 +1,246 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- slider_area_start -->
+    <div class="slider_area">
+      <div class="single_slider  d-flex align-items-center slider_bg_1">
+          <div class="container">
+              <div class="row align-items-center justify-content-center">
+                  <div class="col-xl-10">
+                      <div class="slider_text text-center justify-content-center">
+                          <p>Tìm tài liệu bạn muốn</p>
+                          <h3>Tìm tài liệu bạn muốn</h3>
+                          <div class="search_form">
+                              <form action="#">
+                                  <div class="row align-items-center">
+                                      <div class="col-xl-5 col-md-4">
+                                          <div class="input_field">
+                                              <input type="text" placeholder="What are you finding?">
+                                          </div>
+                                      </div>
+                                      <div class="col-xl-4 col-md-4">
+                                          <div class="input_field location">
+                                              <input type="text" placeholder="Location">
+                                          </div>
+                                      </div>
+                                      <div class="col-xl-3 col-md-4">
+                                          <div class="button_search">
+                                              <button class="boxed-btn2" type="submit">Tìm kiếm</button>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </form>
+                          </div>
+                          <div class="quality">
+                              <ul>
+                                  {% for cat_item in categorys %}
+                                  <li>
+                                      <button> {{ cat_item.cate_title }}</button>
+                                  </li>
+                                  {% endfor %}
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- slider_area_end -->
+
+  <div class="popular_catagory_area">
+      <div class="container">
+          <div class="row">
+              <div class="col-xl-12">
+                  <div class="section_title mb-60 text-center">
+                      <p>Danh mục</p>
+                      <h3>
+                          Những danh mục phổ biến
+                      </h3>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+            {% for it in sub_cate %}
+              <div class="col-xl-3 col-md-4 col-lg-3">
+                  <div class="single_catagory">
+                      <div class="thumb">
+                          <img src="{% static 'home/img/catagory/1.png' %}" alt="">
+                      </div>
+                      <div class="hover_overlay">
+                          <div class="hover_inner">
+                              <a href="{%  url 'doc_cate' it.slug %}"><h4>{{ it.sub_title }}</h4></a>
+                              <span>05 Tài liệu</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              {% endfor %}
+
+          </div>
+      </div>
+  </div>
+
+  <div class="explorer_europe">
+      <div class="container">
+          <div class="explorer_wrap">
+              <div class="row align-items-center">
+                  <div class="col-xl-6 col-md-4">
+                      <h3>Tài liệu phổ biến</h3>
+                  </div>
+                  <div class="col-xl-6 col-md-8">
+                      <div class="explorer_tab">
+                          <nav>
+                              <div class="nav" id="nav-tab" role="tablist">
+                                  {% for it in sub_cate %}
+                                  <a class="nav-item nav-link active" id="{{ it.slug }}" data-toggle="tab"
+                                      href="#{{ it.slug }}" role="tab" aria-controls="{{ it.slug }}"
+                                      {% if forloop.counter0 == 0 %}
+                                        aria-selected="true"
+                                      {% else %}
+                                        aria-selected="false"
+                                      {% endif %}
+                                      > {{ it.sub_title }}</a>
+                                {% endfor %}
+                         
+                              </div>
+                          </nav>
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="tab-content" id="nav-tabContent">
+              {% for it in list_im %}
+              <div class="tab-pane fade show {% if forloop.counter0 == 0 %} active {% endif %}" id="{{ it.su_cate.slug }}" role="tabpanel" aria-labelledby="{{ it.su_cate.slug }}">
+                  <div class="row">
+                      {% for si in it.docl %}
+                      <div class="col-xl-4 col-lg-4 col-md-6">
+                          <div class="single_explorer">
+                              <div class="thumb">
+                                  <img src="{{ si.image.url }}" alt="">
+                              </div>
+                              <div class="explorer_bottom d-flex">
+                                  <div class="icon">
+                                      <i class="flaticon-beach"></i>
+                                  </div>
+                                  <div class="explorer_info">
+                                      <h3><a href="{% url 'detail_doc' si.slug %}">{{ si.title }}</a></h3>
+                                      <p>700/D, Kings road, Green lane, London</p>
+                                      <ul>
+                                          <li> <i class="fa fa-money"></i>
+                                              {{ si.price }}</li>
+                                          <li><i class="fa fa-user"></i>{{ si.user.username }}</li>
+                                      </ul>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      {% endfor %}
+                     
+                  </div>
+              </div>
+
+              {% endfor %}
+
+          </div>
+
+      </div>
+  </div>
+
+
+  <!-- sprayed_area  -->
+  <div class="sprayed_area overlay">
+      <div class="container">
+          <div class="row">
+              <div class="col-xl-12">
+                  <div class="text text-center">
+                      <h3>Thu nhập thụ động  từ tài liệu của bạn </h3>
+                      <p>Tải lên tài liệu của bạn để bán bạn có khả năng tiếp thêm thu nhập thụ động từ chúng <br> còn chờ gì nữa.</p>
+                      <a href="#" class="boxed-btn2">Tải lên tài liệu</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!--/ sprayed_area end  -->
+
+  <!-- testimonial_area  -->
+  <div class="testimonial_area  ">
+      <div class="container">
+          <div class="row">
+              <div class="col-xl-12">
+                  <div class="section_title mb-60 text-center">
+                      <p>Reviews</p>
+                      <h3>
+                          Mọi người nói gì ?
+                      </h3>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-xl-12">
+                  <div class="testmonial_active owl-carousel">
+                      <div class="single_carousel">
+                          <div class="single_testmonial text-center">
+                              <div class="quote">
+                                  <img src="{% static 'home/img/svg_icon/quote.svg" alt="">
+                              </div>
+                              <p>Tôi đã tải rất nhiều tài liệu ở liondocx  <br>
+                                  Tài liệu ở đây rất chất lượng.
+                                  <br>
+                             </p>
+                              <div class="testmonial_author">
+                                  <div class="thumb">
+                                      <img src="{% static 'home/img/case/testmonial.png' %}" alt="">
+                                  </div>
+                                  <h3>Nguyễn Hữu Sơn</h3>
+                                  <span>CEO IT2programing</span>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="single_carousel">
+                          <div class="single_testmonial text-center">
+                              <div class="quote">
+                                  <img src="{% static 'home/img/svg_icon/quote.svg" alt="">
+                              </div>
+                              <p>Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor <br>
+                                  sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec sed neque.
+                                  <br>
+                                  Fusce ac mattis nulla. Morbi eget ornare dui. </p>
+                              <div class="testmonial_author">
+                                  <div class="thumb">
+                                      <img src="{% static 'home/img/case/testmonial.png' %}" alt="">
+                                  </div>
+                                  <h3>Robert Thomson</h3>
+                                  <span>Business Owner</span>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="single_carousel">
+                          <div class="single_testmonial text-center">
+                              <div class="quote">
+                                  <img src="{% static 'home/img/svg_icon/quote.svg" alt="">
+                              </div>
+                              <p>Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor <br>
+                                  sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec sed neque.
+                                  <br>
+                                  Fusce ac mattis nulla. Morbi eget ornare dui. </p>
+                              <div class="testmonial_author">
+                                  <div class="thumb">
+                                      <img src="{% static 'home/img/case/testmonial.png' %}" alt="">
+                                  </div>
+                                  <h3>Robert Thomson</h3>
+                                  <span>Business Owner</span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- /testimonial_area  -->
+
+{% endblock %}

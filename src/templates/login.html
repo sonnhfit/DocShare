@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid sign-up">
+    <div>
+        <h2>Đăng nhập:</h2>
+    </div>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="">Email:</label>
+        <p><input type="text" name="user_name"></p>
+        <label for="">Mật khẩu:</label>
+        <p><input type="password" name="pass_word"></p>
+        <input type="submit" value="Đăng nhập">
+        
+    </form>
+    <div class="message">
+        {% for mess in messages %}
+            <h5 style="color: crimson;">{{ mess }}</h5>
+        {% endfor %}
+    </div>
+    <div class="link-to-signup">
+        <h4>Bạn chưa có tài khoản? Đăng kí <a href="{% url 'sign_up' %}" style="color: brown;">tại đây</a></h4>
+    </div>
+</div>
+{% endblock %}
