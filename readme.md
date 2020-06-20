@@ -3,7 +3,7 @@
 - Nguyễn Hữu Sơn - sonnhfit@gmail.com 
 - Phạm Thanh Phong - thanhphongdz2707@gmail.com
 - Nguyễn Nhật Nam - nhatnamnguyen.gtvthcm@gmail.com
-- H
+- Hoàng Đình Hùng - h1oangdinhhung59@gmail.com
 - Nguyễn Trung Phúc - https://github.com/sonnhfit/DocShare.git
 - Trần Nam Phương - trannamphuong2k@gmail.com
 
