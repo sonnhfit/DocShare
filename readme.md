@@ -5,7 +5,7 @@
 - Hoàng Đình Hùng - h1oangdinhhung59@gmail.com
 - Nguyễn Trung Phúc - https://github.com/sonnhfit/DocShare.git
 - Trần Nam Phương - trannamphuong2k@gmail.com
-
+Nguyễn Trọng Nghĩa - trongnghiabn99@gmail.com
 
 
 Nguyễn Trọng Nghĩa - trongnghiabn99@gmail.com
