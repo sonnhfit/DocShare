@@ -9,4 +9,4 @@
 - Nguyễn Trọng Nghĩa - trongnghiabn99@gmail.com
 - Nguyễn Hùng Tình - cautunn0501@gmail.com
 - Đặng Thị Huệ - dangthihue.2006@gmail.com
-- Trần Tuấn - tuantt1889@gmail.com
+- Trần - Tuấn - tuantt1889@gmail.com
