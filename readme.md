@@ -7,9 +7,4 @@
 - Nguyễn Trung Phúc - ntpdev264@gmail.com
 - Trần Nam Phương - trannamphuong2k@gmail.com
 - Nguyễn Trọng Nghĩa - trongnghiabn99@gmail.com
-
-
-
-
-Nguyễn Trọng Nghĩa - trongnghiabn99@gmail.com
 - Đặng Thị Huệ - dangthihue.2006@gmail.com
