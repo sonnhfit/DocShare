@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 from myapp.views import HomeView, LionDocList, DetailDocument, SearchLionDocList
-from users.views import SignInView, SignUpView
+from users.views import SignInView, SignUpView, BlogView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,6 +35,7 @@ urlpatterns = [
     path('search/', SearchLionDocList.as_view(), name='search'),
     #cart
     path('cart/', include('cart.urls')),
+    path('blog/', BlogView.as_view(), name='blog')
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

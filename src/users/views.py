@@ -45,4 +45,9 @@ class SignInView(views.View):
         login(request, check)
         return redirect('home')
 
+
+class BlogView(views.View):
+    def get(self, request):
+        return render(request, 'blog.html')
+
     
