@@ -18,9 +18,9 @@ class DocumentCategory(models.Model):
 
 
 class SubCategory(models.Model):
-    sub_title = models.CharField(max_length=255)
-    slug = models.SlugField(max_length=100, unique=True)
-    parent_cate = models.ForeignKey(DocumentCategory, on_delete=models.CASCADE)
+    sub_title = models.CharField(max_length=255, verbose_name = "Tiêu Đề Nhỏ")
+    slug = models.SlugField(max_length=100, unique=True, verbose_name = "Hạng Mục")
+    parent_cate = models.ForeignKey(DocumentCategory, on_delete=models.CASCADE, verbose_name = "Nhóm Tài Liệu")
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.sub_title)
@@ -29,10 +29,13 @@ class SubCategory(models.Model):
     def __str__(self):
         return self.sub_title
 
+    class Meta:
+        verbose_name_plural = 'Danh Mục Nhỏ'
+
 
 class Tag(models.Model):
-    word        = models.CharField(max_length=35)
-    slug        = models.CharField(max_length=250)
+    word        = models.CharField(max_length=35, verbose_name = "Từ Khóa Thẻ")
+    slug        = models.CharField(max_length=250, verbose_name = "Hạng Mục")
     created_at  = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
@@ -41,6 +44,9 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.word
+
+    class Meta:
+        verbose_name_plural = 'Thẻ'
 
 
 class Document(models.Model):
