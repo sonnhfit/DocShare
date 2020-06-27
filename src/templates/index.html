@@ -12,11 +12,12 @@
                           <p>Tìm tài liệu bạn muốn</p>
                           <h3>Tìm tài liệu bạn muốn</h3>
                           <div class="search_form">
-                              <form action="#">
+                              <form action="{% url 'search' %}" method="post">
+                                  {% csrf_token %}
                                   <div class="row align-items-center">
                                       <div class="col-xl-5 col-md-4">
                                           <div class="input_field">
-                                              <input type="text" placeholder="What are you finding?">
+                                              <input type="text" placeholder="Nhập tên tài liệu bạn muốn tìm?" name="search" >
                                           </div>
                                       </div>
                                       <div class="col-xl-4 col-md-4">

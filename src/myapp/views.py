@@ -60,8 +60,9 @@ class SearchLionDocList(View):
         except Document.DoesNotExist:
             status = None
         return render(request, 'search.html', {"doc": status})
-
-
+    
+ 
+   
 class DetailDocument(View):
 
     def get(self, request, slug):
