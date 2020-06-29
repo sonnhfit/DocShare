@@ -12,15 +12,14 @@
                           <p>Tìm tài liệu bạn muốn</p>
                           <h3>Tìm tài liệu bạn muốn</h3>
                           <div class="search_form">
-                              <form action="{% url 'search' %}" method="post">
-                                  {% csrf_token %}
+                              <form action="#" >
                                   <div class="row align-items-center">
                                       <div class="col-xl-5 col-md-4">
                                           <div class="input_field">
-                                              <input type="text" placeholder="Nhập tên tài liệu bạn muốn tìm?" name="search" >
+                                              <input type="text" placeholder="What are you finding?" name="input_search">
                                           </div>
                                       </div>
-                                      <div class="col-xl-4 col-md-4">
+                                      <div class="col-xl-4 daycol-md-4">
                                           <div class="input_field location">
                                               <input type="text" placeholder="Location">
                                           </div>
@@ -71,7 +70,7 @@
                       </div>
                       <div class="hover_overlay">
                           <div class="hover_inner">
-                              <a href="{%  url 'doc_cate' it.slug %}"><h4>{{ it.sub_title }}</h4></a>
+                              <a href="{%  url 'detail_doc' it.slug %}"><h4>{{ it.sub_title }}</h4></a>
                               <span>05 Tài liệu</span>
                           </div>
                       </div>

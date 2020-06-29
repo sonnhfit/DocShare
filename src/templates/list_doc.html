@@ -114,9 +114,9 @@
                     </div>
                 </div>
                 <div class="col-xl-8 col-lg-8">
-                        <h3 class="exp_title">Tài liệu {{ category }}</h3>
+                        <h3 class="exp_title">Tài liệu {{ doc_category }}</h3>
                         <div class="row">
-                            {% for item in doc_list %}
+                            {% for item in sub_category %}
                                 <div class="col-xl-6 col-lg-6 col-md-6">
                                     <div class="single_explorer">
                                         <div class="thumb">
@@ -127,12 +127,14 @@
                                                 <i class="flaticon-beach"></i>
                                             </div>
                                             <div class="explorer_info">
-                                                <h3><a href="{% url 'detail_doc' item.slug %}">{{ item.title }}</a></h3>
+                                                <h3><a href="{% url 'detail_doc' item.slug %}">{{ item.sub_title }}</a></h3>
                                                 <!-- <p>{{ item.description }}</p> -->
                                                 <ul>
-                                                    <li> <i class="fa fa-money"></i>
-                                                        {{ item.price }}đ</li>
-                                                    <li><i class="fa fa-user"></i>{{ item.user.username }}</li>
+                                                    {% for doc in docs %}
+                                                    <li>{{ doc.title }}</li>
+                                                    <li> <i class="fa fa-money"></i>{{ doc.price }}đ</li>
+                                                    <li><i class="fa fa-user"></i>{{ doc.user.username }}</li>
+                                                    {% endfor %}
                                                 </ul>
                                             </div>
                                         </div>

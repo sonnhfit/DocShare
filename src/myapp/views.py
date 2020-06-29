@@ -34,21 +34,22 @@ class HomeView(TemplateView):
 
 class LionDocList(ListView):
 
-    context_object_name = 'doc_list'
+    context_object_name = 'sub_category'
     template_name = 'list_doc.html'
 
     def get_queryset(self):
-        self.category = get_object_or_404(SubCategory, slug=self.kwargs['category'])
+        self.category = get_object_or_404(DocumentCategory, slug=self.kwargs['category'])
         # DocumentCategory
-
-        return Document.objects.filter(cate=self.category)
+        sub_list = SubCategory.objects.filter(parent_cate=self.category)
+        self.doc = Document.objects.filter(cate__in=sub_list)
+        return sub_list
     
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
         # Add in the publisher
-        context['category'] = self.category
-        print(   context['category'])
+        context['doc_category'] = self.category
+        context['docs'] = self.doc
         return context
 
 
@@ -66,12 +67,12 @@ class SearchLionDocList(View):
 class DetailDocument(View):
 
     def get(self, request, slug):
-        doc = Document.objects.get(slug=slug)
+        cate = SubCategory.objects.get(slug=slug)
         tags = Tag.objects.all()
-        cate = SubCategory.objects.all()
+        doc = Document.objects.filter(cate=cate)
         cart = Cart(request)
         context = {
-            "doc": doc,
+            "docs": doc,
             "cart": cart,
             "tags": tags,
             "cate": cate,
