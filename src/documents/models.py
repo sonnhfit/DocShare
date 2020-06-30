@@ -6,8 +6,8 @@ from users.models import User
 
 
 class DocumentCategory(models.Model):
-    cate_title = models.CharField(max_length=255)
-    slug = models.SlugField(max_length=100, unique=True)
+    cate_title = models.CharField(max_length=255, verbose_name = "Tiêu Đề ")
+    slug = models.SlugField(max_length=100, unique=True, verbose_name = "Hạng Mục")
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.cate_title)
@@ -15,6 +15,9 @@ class DocumentCategory(models.Model):
 
     def __str__(self):
         return self.cate_title
+    
+    class Meta:
+        verbose_name_plural = 'Thể loại tài liệu'
 
 
 class SubCategory(models.Model):
@@ -50,23 +53,24 @@ class Tag(models.Model):
 
 
 class Document(models.Model):
-    title = models.CharField(max_length=255)
-    slug = models.SlugField(max_length=200, unique=True, primary_key=True, auto_created=False)
-    number_of_page = models.IntegerField(default=0)
-    number_of_view = models.IntegerField(default=0)
-    number_of_download = models.IntegerField(default=0)
-    size_of_file = models.FloatField(default=0.0)
-    doc_file = models.FileField(upload_to='doc/%Y/%m/%d/', null=True)
-    description = RichTextUploadingField(default='', blank=True, null=True)
+    title = models.CharField(max_length=255,verbose_name = "Tiêu Đề ")
+    slug = models.SlugField(max_length=200, unique=True, primary_key=True, auto_created=False,verbose_name = "Hạng Mục")
+    number_of_page = models.IntegerField(default=0,verbose_name = "Số Trang")
+    number_of_view = models.IntegerField(default=0,verbose_name = "Lượt Xem")
+    number_of_download = models.IntegerField(default=0,verbose_name = "Lượt Tải")
+    size_of_file = models.FloatField(default=0.0,verbose_name = "kích thước của tập tin")
+
+    doc_file = models.FileField(upload_to='doc/%Y/%m/%d/', null=True,verbose_name = "tập tin tài liệu")
+    description = RichTextUploadingField(default='', blank=True, null=True,verbose_name = " mô tả")
     tags = models.ManyToManyField(Tag)
     cate = models.ForeignKey(SubCategory, on_delete=models.SET_NULL, null=True, blank=True)
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
-    price = models.IntegerField(default=0)
-    image = models.ImageField(upload_to="demo_images")
-    video_url = models.CharField(max_length=255)
-    file_field = models.FileField(upload_to='documents/%Y/%m/%d/')
-    created = models.DateTimeField(auto_now_add=True)
-    modified = models.DateTimeField(auto_now=True)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True,verbose_name = "người dùng")
+    price = models.IntegerField(default=0,verbose_name = "Gía bán")
+    image = models.ImageField(upload_to="demo_images",verbose_name = "hình ảnh")
+    video_url = models.CharField(max_length=255,verbose_name = "link dẫn video")
+    file_field = models.FileField(upload_to='documents/%Y/%m/%d/',verbose_name = "Trường tệp")
+    created = models.DateTimeField(auto_now_add=True,verbose_name = "Ngày tạo")
+    modified = models.DateTimeField(auto_now=True,verbose_name = "Ngày sửa")
 
 
     def save(self, *args, **kwargs):
@@ -76,3 +80,9 @@ class Document(models.Model):
     @property
     def get_text_price(self):
         return f"{self.price:,}"
+    
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name_plural = 'tài liệu'
