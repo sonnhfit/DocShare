@@ -20,7 +20,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 from myapp.views import HomeView, LionDocList, DetailDocument, SearchLionDocList
-from users.views import SignInView, SignUpView, BlogView
+from users.views import SignInView, SignUpView
+from blog.views import BlogView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
