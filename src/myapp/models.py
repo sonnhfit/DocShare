@@ -1,4 +1,4 @@
-from django.db import models
+"""from django.db import models
 
 
 class DemoModel(models.Model):
@@ -7,6 +7,5 @@ class DemoModel(models.Model):
     image = models.ImageField(upload_to="demo_images",verbose_name = "hình ảnh")
 
     def __str__(self):
-        return self.title
-    class Meta:
-        verbose_name_plural = 'Thông tin tài liệu'
+
+        return self.title"""
