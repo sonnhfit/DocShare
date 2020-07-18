@@ -1,6 +1,6 @@
 # Dự án chia sẻ tài liệu mã nguồn mở được thực hiện bởi
 
-- Nguyễn Hữu Sơn - sonnhfit@gmail.com 
+- Nguyễn Hữu Sơn - sonnhfit@gmail.com (founder)
 - Hoàng Thị Mỹ Linh -linlinciu5998@gmail.com
 - Phạm Thanh Phong - thanhphongdz2707@gmail.com
 - Nguyễn Nhật Nam - nhatnamnguyen.gtvthcm@gmail.com
